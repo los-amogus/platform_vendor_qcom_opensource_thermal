@@ -1034,9 +1034,72 @@ namespace implementation {
 		},
 	};
 
+	std::vector<struct target_therm_cfg> sensor_cfg_amogus =
+	{
+		{
+			TemperatureType::CPU,
+			cpu_sensors_trinket,
+			"",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpu-usr" },
+			"GPU",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{ "msm_therm" },
+			"skin",
+			50000,
+			95000,
+			50000,
+			true,
+		},
+		{
+			TemperatureType::BCL_VOLTAGE,
+			{ "pmi632-vbat-lvl0" },
+			"vbat",
+			3000,
+			2800,
+			3000,
+			false,
+		},
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "pmi632-ibat-lvl0" },
+			"ibat",
+			4000,
+			4200,
+			4000,
+			true,
+		},
+		{
+			TemperatureType::BCL_PERCENTAGE,
+			{ "soc" },
+			"soc",
+			10,
+			2,
+			10,
+			false,
+		},
+	};
+
         const std::unordered_map<std::string, std::vector<struct target_therm_cfg>>
                 device_cfg_map = {
 		{"milanf", sensor_cfg_milanf},
+		{"rav", sensor_cfg_amogus},
+		{"sofia", sensor_cfg_amogus},
+		{"sofiap", sensor_cfg_amogus},
+		{"sofiap_sprout", sensor_cfg_amogus},
+		{"sofiar", sensor_cfg_amogus},
 	};
 
 	std::vector<struct target_therm_cfg> add_target_config(
